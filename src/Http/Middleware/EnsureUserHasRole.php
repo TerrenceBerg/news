@@ -1,6 +1,6 @@
 <?php
 
-namespace Tuna976\NEWS\Http\Middleware;
+namespace app\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
