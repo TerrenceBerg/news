@@ -24,6 +24,7 @@ use app\Http\Middleware\EnsureUserHasRole;
 // Public routes
     Route::prefix('news')->name('news.')->group(function () {
     // Post routes 
+        Route::get('/', [HomeController::class, 'index'])->name('home');
         Route::get('/home', [HomeController::class, 'index'])->name('home');
         Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('posts.show');
         Route::get('/category/{category:slug}', [PostController::class, 'byCategory'])->name('posts.category');
