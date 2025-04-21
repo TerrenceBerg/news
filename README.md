@@ -6,6 +6,10 @@ install Laravel
 Install Bootstrap 
 composer require laravel/ui --dev
 php artisan ui bootstrap --auth
+Install the bootstrap icons library.
+npm install bootstrap-icons --save-dev
+Inside your project, open the file resources\sass\app.scss and add :
+@import 'bootstrap-icons/font/bootstrap-icons.css';
 
 Install Package
 ```bash
