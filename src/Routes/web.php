@@ -11,7 +11,7 @@ use Tuna976\NEWS\Http\Controllers\Admin\SubmissionController as AdminSubmissionC
 use Tuna976\NEWS\Http\Controllers\News\HomeController;
 use Tuna976\NEWS\Http\Controllers\News\PostController;
 use Tuna976\NEWS\Http\Controllers\News\UserSubmissionController;
-use Tuna976\NEWS\Http\Middleware\EnsureUserHasRole;
+use app\Http\Middleware\EnsureUserHasRole;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +49,7 @@ use Tuna976\NEWS\Http\Middleware\EnsureUserHasRole;
         // This route is for the admin dashboard
         // It is accessible only to users with the 'admin' role
         // The route is defined with the prefix 'admin' and the name 'admin.dashboard'
+            Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
             Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
         // Posts - Complete resource routes
             Route::get('/posts', [AdminPostController::class, 'index'])->name('posts.index');

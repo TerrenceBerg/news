@@ -3,7 +3,9 @@
 namespace Tuna976\NEWS;
 
 use Illuminate\Support\ServiceProvider;
-
+use Tuna976\NEWS\Http\Middleware\AdminMiddleware;
+use Tuna976\NEWS\Http\Middleware\EnsureUserHasRole;
+ 
 class NEWSServiceProvider extends ServiceProvider
 {
     public function boot()
@@ -15,11 +17,17 @@ class NEWSServiceProvider extends ServiceProvider
         if (! $this->app->routesAreCached()) {
             $this->loadRoutesFrom(__DIR__.'/Routes/web.php');
         }
+        // ✅ Load Middleware 
+        // $kernel->pushMiddleware(AdminMiddleware::class);
+        // $kernel->pushMiddleware(EnsureUserHasRole::class);
+        // $router->middlewareGroup('admin', [ 
+        //     Tuna976\NEWS\Http\Middleware\AdminMiddleware::class, 
+        // ]);
 
         // ✅ Publish resources 
-        // $this->publishes([
-        //     __DIR__.'/Resources/views/images' => resource_path('../public/images'),
-        // ], 'news-images');
+        $this->publishes([
+            __DIR__.'/Http/Middleware' => resource_path('../app/Http/Middleware'),
+        ], 'news-middleware');
 
         // $this->publishes([
         //     __DIR__.'/resources/views/js/serviceworker.js' => resource_path('../public/js/serviceworker.js'),
@@ -28,8 +36,9 @@ class NEWSServiceProvider extends ServiceProvider
         // ✅ Publish Config (Ensure correct path)
         $this->publishes([
             __DIR__.'/Config/news-config.php' => config_path('news-config.php'),
-        ], 'config');
+        ], 'news-config');
 
+        $this->loadMigrationsFrom(__DIR__.'/Database/migrations');
     }
 
     public function register()

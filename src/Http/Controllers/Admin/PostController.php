@@ -3,7 +3,7 @@
 namespace Tuna976\NEWS\Http\Controllers\Admin;
 
 use Tuna976\NEWS\Events\PostCreated;
-use Tuna976\NEWS\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 use Tuna976\NEWS\Models\Category;
 use Tuna976\NEWS\Models\Post;
 use Tuna976\NEWS\Models\PostImage;

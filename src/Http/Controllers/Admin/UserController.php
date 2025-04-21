@@ -2,7 +2,7 @@
 
 namespace Tuna976\NEWS\Http\Controllers\Admin;
 
-use Tuna976\NEWS\Http\Controllers\Controller;
+use App\Http\Controllers\Controller;
 use Tuna976\NEWS\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
