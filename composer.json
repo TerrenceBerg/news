@@ -26,5 +26,8 @@
         "laravel/framework": "^12.0"
     },
     "minimum-stability": "dev",
-    "prefer-stable": true
+    "prefer-stable": true,
+    "require-dev": {
+        "laravel/ui": "^4.6"
+    }
 }

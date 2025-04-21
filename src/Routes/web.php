@@ -20,14 +20,17 @@ use Tuna976\NEWS\Http\Middleware\EnsureUserHasRole;
 */
  
 // Auth routes
-    Auth::routes();
+    // Auth::routes();
 // Public routes
-    Route::get('/news', [HomeController::class, 'index'])->name('home');
-
-// Post routes 
-    Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('posts.show');
-    Route::get('/category/{category:slug}', [PostController::class, 'byCategory'])->name('posts.category');
-    Route::get('/tag/{tag:slug}', [PostController::class, 'byTag'])->name('posts.tag');
+    Route::prefix('news')->name('news.')->group(function () {
+    // Post routes 
+        Route::get('/home', [HomeController::class, 'index'])->name('home');
+        Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('posts.show');
+        Route::get('/category/{category:slug}', [PostController::class, 'byCategory'])->name('posts.category');
+        Route::get('/tag/{tag:slug}', [PostController::class, 'byTag'])->name('posts.tag');
+        Route::get('/search', [PostController::class, 'search'])->name('posts.search');
+        Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+    });
 
 // Public user posts route
     Route::get('/users/{userId}/posts', [UserSubmissionController::class, 'userPosts'])
