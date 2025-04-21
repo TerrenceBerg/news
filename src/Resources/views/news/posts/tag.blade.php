@@ -71,7 +71,7 @@
                 <div class="card-header">Categories</div>
                 <div class="card-body p-0">
                     <div class="list-group list-group-flush">
-                        @foreach(\App\Models\Category::withCount('posts')->get() as $category)
+                        @foreach(Tuna976\NEWS\Models\Category::withCount('posts')->get() as $category)
                             <a href="{{ route('posts.category', $category->slug) }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                                 {{ $category->name }}
                                 <span class="badge bg-primary rounded-pill">{{ $category->posts_count }}</span>

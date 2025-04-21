@@ -29,14 +29,14 @@ class PostController extends Controller
     public function index(): View
     {
         $posts = Post::with(['user', 'category'])->latest()->paginate(10);
-        return view('news::admin.posts.index', compact('posts'));
+        return view('news::news.admin.posts.index', compact('posts'));
     }
 
     public function create(): View
     {
         $categories = Category::all();
         $tags = Tag::all();
-        return view('news::admin.posts.create', compact('categories', 'tags'));
+        return view('news::news.admin.posts.create', compact('categories', 'tags'));
     }
 
     public function store(Request $request): RedirectResponse
@@ -137,7 +137,7 @@ class PostController extends Controller
         $categories = Category::all();
         $tags = Tag::all();
         $images = $post->images;
-        return view('news::admin.posts.edit', compact('post', 'categories', 'tags', 'images'));
+        return view('news::news.admin.posts.edit', compact('post', 'categories', 'tags', 'images'));
     }
 
     public function update(Request $request, Post $post): RedirectResponse

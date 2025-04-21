@@ -1,8 +1,9 @@
 <?php
 
 namespace Tuna976\NEWS\Models;
-use Tuna976\NEWS\Services\ImageOptimizationService;
+use Tuna976\NEWS\Models\Post;
 use Illuminate\Database\Eloquent\Model;
+use Tuna976\NEWS\Services\ImageOptimizationService;
 
 class PostImage extends Model
 {

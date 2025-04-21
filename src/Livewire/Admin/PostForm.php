@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Livewire\Admin;
-
-use App\Models\Category;
-use App\Models\Post;
-use App\Models\Tag;
+namespace Tuna976\NEWS\Livewire\Admin;
+ 
+use Tuna976\NEWS\Models\Category;
+use Tuna976\NEWS\Models\Post;
+use Tuna976\NEWS\Models\Tag;
 use Illuminate\Support\Str;
 use Livewire\Component;
 use Livewire\WithFileUploads;

@@ -1,9 +1,13 @@
 <?php
 
 namespace Tuna976\NEWS\Models;
-use Tuna976\NEWS\Services\ImageOptimizationService;
+use Tuna976\NEWS\Models\Tag;
+use Tuna976\NEWS\Models\Comment;
+use Tuna976\NEWS\Models\Category;
+use Tuna976\NEWS\Models\PostImage;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Tuna976\NEWS\Services\ImageOptimizationService;
 
 class Post extends Model
 {

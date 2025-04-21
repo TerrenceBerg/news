@@ -1,4 +1,4 @@
-@extends('news.admin.layouts.admin')
+@extends('news::news.admin.layouts.admin')
 
 @section('title', 'Manage Submissions')
 

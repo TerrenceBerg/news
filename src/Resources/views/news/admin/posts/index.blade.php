@@ -8,5 +8,5 @@
         </a>
     </div>
 
-    @livewire('admin.posts-table')
+    @livewire('news::news.admin.posts-table')
 @endsection

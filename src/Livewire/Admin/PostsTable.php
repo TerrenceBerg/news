@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Livewire\Admin;
+namespace Tuna976\NEWS\Livewire\Admin;
 
-use App\Models\Post;
+use Tuna976\NEWS\Models\Post;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -37,7 +37,7 @@ class PostsTable extends Component
     
     public function render()
     {
-        return view('livewire.admin.posts-table', [
+        return view('news.livewire.admin.posts-table', [
             'posts' => Post::with(['user', 'category'])
                 ->where('title', 'like', '%'.$this->search.'%')
                 ->orderBy($this->sortField, $this->sortDirection)

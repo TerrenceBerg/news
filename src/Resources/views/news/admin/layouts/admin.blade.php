@@ -179,7 +179,7 @@
                 </a>
                 <a class="list-group-item list-group-item-action bg-dark text-light" href="{{ route('admin.submissions.index') }}"><i class="bi bi-file-text me-2"></i> User Submissions
                     @php
-                        $pendingCount = \App\Models\Post::where('is_published', 0)->count();
+                        $pendingCount = Tuna976\NEWS\Models\Post::where('is_published', 0)->count();
                     @endphp
                     @if($pendingCount > 0)
                         <span class="badge bg-danger ms-2">{{ $pendingCount }}</span>
@@ -211,7 +211,7 @@
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="bi bi-person-circle me-1"></i>
-                                <span class="d-none d-sm-inline">{{ Auth::user()->name }}</span>
+                                <span class="d-none d-sm-inline">{{ Auth::user()->name ?? '' }}</span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <li>

@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Livewire\News;
+namespace Tuna976\NEWS\Livewire\News;
 
-use App\Models\Comment;
-use App\Models\Post;
+use Tuna976\NEWS\Models\Comment;
+use Tuna976\NEWS\Models\Post;
 use Livewire\Component;
 
 class CommentSection extends Component

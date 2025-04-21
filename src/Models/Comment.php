@@ -1,6 +1,8 @@
 <?php
 
 namespace Tuna976\NEWS\Models;
+use Tuna976\NEWS\Models\Post;
+use Tuna976\NEWS\Models\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model

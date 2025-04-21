@@ -1,4 +1,4 @@
-@extends('news.admin.layouts.admin')
+@extends('news::news.admin.layouts.admin')
 
 @section('content')
 <h1 class="h3 text-center">Create New Post</h1>
