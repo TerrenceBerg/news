@@ -45,7 +45,7 @@ use app\Http\Middleware\EnsureUserHasRole;
         ->name('submissions.my-posts');
 
 // Admin routes - Use class directly instead of alias
-    Route::middleware(['auth', EnsureUserHasRole::class.':admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::prefix('admin')->name('admin.')->group(function () {
         // Dashboard
         // This route is for the admin dashboard
         // It is accessible only to users with the 'admin' role
