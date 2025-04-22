@@ -1,4 +1,4 @@
-@extends('news::news.layouts.app')
+@extends('layouts.app')
 
 @section('title', $category->name . ' News & Articles | ' . config('app.name'))
 @section('meta_description', $category->description ?? 'Browse the latest ' . $category->name . ' news and articles on ' . config('app.name'))
