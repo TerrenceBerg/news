@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('news::news.layouts.app')
 
 @section('title', $post->title . ' | ' . config('app.name'))
 @section('meta_description', $post->excerpt ?? Str::limit(strip_tags($post->content), 160))

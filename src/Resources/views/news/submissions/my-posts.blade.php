@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('news::news.layouts.app')
 
 @section('title', $user->name . '\'s Posts')
 

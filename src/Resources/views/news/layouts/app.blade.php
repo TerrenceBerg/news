@@ -42,6 +42,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="{{url('css/blog.css')}}">
     
     <!-- jQuery and Colorbox -->
     <script src="{{ asset('js/jquery.colorbox.min.js') }}"></script>
@@ -59,21 +60,19 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss'])
     @livewireStyles
-
     
     <!-- Additional CSS -->
     <link href="{{ asset('css/lightbox.css') }}" rel="stylesheet">
-  
+
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-black shadow-sm"> <!-- Changed to bg-black -->
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                    <i class="bi bi-newspaper me-2" style="color: #00FF00;"></i>
                     {{ config('app.name', 'Laravel') }}
                 </a>
-                <button class="navbar-toggler" style="background-color: #00FF00;" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -81,7 +80,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('home') }}">Home</a>
+                            <a class="nav-link" href="{{ route('news.home') }}">Home</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="categoriesDropdown" role="button"
@@ -166,18 +165,8 @@
             </div>
         </main>
         
-        <footer class="bg-black text-light py-4 mt-4"> 
+        <footer class="py-4 mt-4">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-4 mb-4 mb-md-0">
-                        <h5>{{ config('app.name') }}</h5>
-                        <p>Your source for the latest news and articles.</p>
-                    </div>
-                    <div class="col-md-4 mb-4 mb-md-0">
-                    </div>
-                    <div class="col-md-4">
-                    </div>
-                </div>
                 <div class="text-center mt-4">
                     <p class="mb-0">&copy; {{ date('Y') }} {{ config('app.name') }}. All rights reserved.</p>
                 </div>
@@ -187,7 +176,7 @@
         <!-- Mobile Bottom Navigation -->
         <div class="mobile-bottom-nav d-md-none">
             <div class="d-flex justify-content-around py-2">
-                <a href="{{ route('home') }}" class="text-center text-decoration-none text-dark">
+                <a href="{{ route('news.home') }}" class="text-center text-decoration-none text-dark">
                     <i class="bi bi-house fs-5 d-block"></i>
                     <small>Home</small>
                 </a>
@@ -237,18 +226,6 @@
     </div>
     
     @vite(['resources/js/app.js'])
-    <!-- Matrix initialization script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            if (localStorage.getItem('matrix_enabled') === 'true') {
-                console.log('Matrix enabled, initializing...');
-                if (typeof window.forceMatrix === 'function') {
-                    setTimeout(window.forceMatrix, 500);
-                }
-            }
-        });
-    </script>
-    
     @livewireScripts
     @stack('scripts')
 </body>

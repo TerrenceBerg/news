@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('news::news.layouts.app')
 
 @section('title', config('app.name') . ' - Latest News & Articles')
 @section('meta_description', 'Stay updated with the latest news, technology updates, business insights and more on ' . config('app.name'))
