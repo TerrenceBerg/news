@@ -7,7 +7,6 @@ use App\Http\Controllers\News\Admin\DashboardController as AdminDashboardControl
 use App\Http\Controllers\News\Admin\PostController as AdminPostController;
 use App\Http\Controllers\News\Admin\TagController as AdminTagController;
 use App\Http\Controllers\News\Admin\UserController as AdminUserController;
-app/Http/Controllers/News/Admin/UserController.php
 use App\Http\Controllers\News\Admin\SubmissionController as AdminSubmissionController;
 use App\Http\Controllers\News\HomeController;
 use App\Http\Controllers\News\PostController;
