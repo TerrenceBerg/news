@@ -25,26 +25,19 @@ class NEWSServiceProvider extends ServiceProvider
         if (! $this->app->routesAreCached()) {
             $this->loadRoutesFrom(__DIR__.'/Routes/web.php');
         }
-        // ✅ Load Middleware 
-        // $kernel->pushMiddleware(AdminMiddleware::class);
-        // $kernel->pushMiddleware(EnsureUserHasRole::class);
-        // $router->middlewareGroup('admin', [ 
-        //     Tuna976\NEWS\Http\Middleware\AdminMiddleware::class, 
-        // ]);
 
         // ✅ Publish resources 
         $this->publishes([
-            __DIR__.'/Http/Middleware' => resource_path('../app/Http/Middleware'),
-        ], 'news-middleware');
-
-        // $this->publishes([
-        //     __DIR__.'/resources/views/js/serviceworker.js' => resource_path('../public/js/serviceworker.js'),
-        // ], 'news-serviceworker');
-
-        // ✅ Publish Config (Ensure correct path)
-        $this->publishes([
             __DIR__.'/Config/news-config.php' => config_path('news-config.php'),
-        ], 'news-config');
+            __DIR__.'/Http/Middleware' => app_path('/Http/Middleware'),
+            __DIR__.'/Http//Controllers/News' => app_path('/Http/Controllers/News'),
+            __DIR__.'/Http/Livewire/News' => app_path('/Http/Livewire/News'),
+            __DIR__.'/Models/News' => app_path('/Models/News'),
+            __DIR__.'/Services/News' => app_path('/Services/News'),
+            __DIR__.'/Events' => app_path('/Events'),
+            __DIR__.'/Resources/views/news' => resource_path('/views/vendor/News'),
+            __DIR__.'/Resources/views/vendor/pagination' => resource_path('/views/vendor/pagination'),
+        ], 'news-files');
 
         $this->loadMigrationsFrom(__DIR__.'/Database/migrations');
     }

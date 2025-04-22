@@ -1,11 +1,11 @@
 <?php
 
-namespace Tuna976\NEWS\Http\Controllers\News;
+namespace App\Http\Controllers\News;
 
 use App\Http\Controllers\Controller;
-use Tuna976\NEWS\Models\Category;
-use Tuna976\NEWS\Models\Post;
-use Tuna976\NEWS\Models\Tag;
+use App\Models\News\Category;
+use App\Models\News\Post;
+use App\Models\News\Tag;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -17,7 +17,7 @@ class PostController extends Controller
             abort(404);
         }
         
-        return view('news::news.posts.show', compact('post'));
+        return view('vendor.news.posts.show', compact('post'));
     }
     
     public function byCategory(Category $category): View
@@ -27,7 +27,7 @@ class PostController extends Controller
             ->latest('published_at')
             ->paginate(9);
             
-        return view('news::news.posts.category', compact('category', 'posts'));
+        return view('vendor.news.posts.category', compact('category', 'posts'));
     }
     
     public function byTag(Tag $tag): View
@@ -37,6 +37,6 @@ class PostController extends Controller
             ->latest('published_at')
             ->paginate(9);
             
-        return view('news::news.posts.tag', compact('tag', 'posts'));
+        return view('vendor.news.posts.tag', compact('tag', 'posts'));
     }
 }

@@ -1,9 +1,9 @@
 <?php
 
-namespace Tuna976\NEWS\Http\Controllers\Admin;
+namespace App\Http\Controllers\News\Admin;
 
 use App\Http\Controllers\Controller;
-use Tuna976\NEWS\Models\Category;
+use App\Models\News\Category;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -14,12 +14,12 @@ class CategoryController extends Controller
     public function index(): View
     {
         $categories = Category::withCount('posts')->latest()->paginate(10);
-        return view('news::news.admin.categories.index', compact('categories'));
+        return view('vendor.news.admin.categories.index', compact('categories'));
     }
 
     public function create(): View
     {
-        return view('news::news.admin.categories.create');
+        return view('vendor.news.admin.categories.create');
     }
     
     public function store(Request $request): RedirectResponse
@@ -36,13 +36,13 @@ class CategoryController extends Controller
         
         Category::create($validated);
         
-        return redirect()->route('news::admin.categories.index')
+        return redirect()->route('admin.categories.index')
             ->with('message', 'Category created successfully!');
     }
 
     public function edit(Category $category): View
     {
-        return view('news::admin.categories.edit', compact('category'));
+        return view('vendor.news.admin.categories.edit', compact('category'));
     }
     
     public function update(Request $request, Category $category): RedirectResponse
@@ -55,7 +55,7 @@ class CategoryController extends Controller
         
         $category->update($validated);
         
-        return redirect()->route('news::admin.categories.index')
+        return redirect()->route('admin.categories.index')
             ->with('message', 'Category updated successfully!');
     }
     
@@ -63,7 +63,7 @@ class CategoryController extends Controller
     {
         $category->delete();
         
-        return redirect()->route('news::admin.categories.index')
+        return redirect()->route('admin.categories.index')
             ->with('message', 'Category deleted successfully!');
     }
 }

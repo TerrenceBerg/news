@@ -1,10 +1,10 @@
 <?php
 
-namespace Tuna976\NEWS\Http\Controllers\News;
+namespace App\Http\Controllers\News;
 use App\Http\Controllers\Controller;
-use Tuna976\NEWS\Models\Category;
-use Tuna976\NEWS\Models\Post;
-use Tuna976\NEWS\Models\Tag;
+use App\Models\News\Category;
+use App\Models\News\Post;
+use App\Models\News\Tag;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -24,6 +24,6 @@ class HomeController extends Controller
         $categories = Category::withCount('posts')->get();
         $tags = Tag::withCount('posts')->get();
             
-        return view('news::news.home', compact('featuredPosts', 'recentPosts', 'categories', 'tags'));
+        return view('vendor.news.home', compact('featuredPosts', 'recentPosts', 'categories', 'tags'));
     }
 }

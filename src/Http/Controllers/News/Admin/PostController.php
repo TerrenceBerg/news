@@ -1,14 +1,14 @@
 <?php
 
-namespace Tuna976\NEWS\Http\Controllers\Admin;
+namespace App\Http\Controllers\News\Admin;
 
-use Tuna976\NEWS\Events\PostCreated;
+use App\Events\PostCreated;
 use App\Http\Controllers\Controller;
-use Tuna976\NEWS\Models\Category;
-use Tuna976\NEWS\Models\Post;
-use Tuna976\NEWS\Models\PostImage;
-use Tuna976\NEWS\Models\Tag;
-use Tuna976\NEWS\Services\ImageOptimizationService;
+use App\Models\News\Category;
+use App\Models\News\Post;
+use App\Models\News\PostImage;
+use App\Models\News\Tag;
+use App\Services\News\ImageOptimizationService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -29,14 +29,14 @@ class PostController extends Controller
     public function index(): View
     {
         $posts = Post::with(['user', 'category'])->latest()->paginate(10);
-        return view('news::news.admin.posts.index', compact('posts'));
+        return view('vendor.news.admin.posts.index', compact('posts'));
     }
 
     public function create(): View
     {
         $categories = Category::all();
         $tags = Tag::all();
-        return view('news::news.admin.posts.create', compact('categories', 'tags'));
+        return view('vendor.news.admin.posts.create', compact('categories', 'tags'));
     }
 
     public function store(Request $request): RedirectResponse
@@ -109,7 +109,7 @@ class PostController extends Controller
                 
                 Log::info('PostCreated event dispatched successfully');
                 
-                return redirect()->route('news::admin.posts.index')
+                return redirect()->route('admin.posts.index')
                     ->with('success', 'Post created successfully! Notification email sent.');
             } catch (\Exception $e) {
                 Log::error('Failed to send post notification', [
@@ -117,7 +117,7 @@ class PostController extends Controller
                     'trace' => $e->getTraceAsString()
                 ]);
                 
-                return redirect()->route('news::admin.posts.index')
+                return redirect()->route('admin.posts.index')
                     ->with('success', 'Post created successfully!')
                     ->with('warning', 'Failed to send notification email: ' . $e->getMessage());
             }
@@ -137,7 +137,7 @@ class PostController extends Controller
         $categories = Category::all();
         $tags = Tag::all();
         $images = $post->images;
-        return view('news::news.admin.posts.edit', compact('post', 'categories', 'tags', 'images'));
+        return view('vendor.news.admin.posts.edit', compact('post', 'categories', 'tags', 'images'));
     }
 
     public function update(Request $request, Post $post): RedirectResponse
@@ -181,14 +181,14 @@ class PostController extends Controller
             $post->tags()->detach();
         }
         
-        return redirect()->route('news::admin.posts.index')
+        return redirect()->route('admin.posts.index')
             ->with('message', 'Post updated successfully!');
     }
 
     public function destroy(Post $post): RedirectResponse
     {
         $post->delete();
-        return redirect()->route('news::admin.posts.index')->with('message', 'Post deleted successfully');
+        return redirect()->route('admin.posts.index')->with('message', 'Post deleted successfully');
     }
 
     /**

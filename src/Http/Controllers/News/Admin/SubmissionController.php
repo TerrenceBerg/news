@@ -1,10 +1,10 @@
 <?php
 
-namespace Tuna976\NEWS\Http\Controllers\Admin;
+namespace App\Http\Controllers\News\Admin;
 
 use App\Http\Controllers\Controller;
-use Tuna976\NEWS\Models\Post;
-use Tuna976\NEWS\Models\Category;
+use App\Models\News\Post;
+use App\Models\News\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -19,7 +19,7 @@ class SubmissionController extends Controller
                         ->orderBy('created_at', 'desc')
                         ->paginate(20);
                         
-        return view('news::news.admin.submissions.index', compact('submissions'));
+        return view('vendor.news.admin.submissions.index', compact('submissions'));
     }
 
     /**
@@ -30,7 +30,7 @@ class SubmissionController extends Controller
         $submission = Post::findOrFail($id);
         $categories = Category::all();
         
-        return view('news::news.admin.submissions.edit', compact('submission', 'categories'));
+        return view('vendor.news.admin.submissions.edit', compact('submission', 'categories'));
     }
 
     /**
@@ -69,7 +69,7 @@ class SubmissionController extends Controller
         
         $submission->save();
         
-        return redirect()->route('news::admin.submissions.index')
+        return redirect()->route('admin.submissions.index')
                          ->with('success', 'Submission updated successfully!');
     }
 
@@ -81,7 +81,7 @@ class SubmissionController extends Controller
         $submission = Post::findOrFail($id);
         $submission->delete();
         
-        return redirect()->route('news::admin.submissions.index')
+        return redirect()->route('admin.submissions.index')
                          ->with('success', 'Submission deleted successfully!');
     }
 
@@ -94,7 +94,7 @@ class SubmissionController extends Controller
         $submission->is_published = 1;
         $submission->save();
         
-        return redirect()->route('news::admin.submissions.index')
+        return redirect()->route('admin.submissions.index')
                          ->with('success', 'Submission published successfully!');
     }
 }

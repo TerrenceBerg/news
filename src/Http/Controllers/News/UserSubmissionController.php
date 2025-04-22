@@ -1,9 +1,9 @@
 <?php
 
-namespace Tuna976\NEWS\Http\Controllers\News;
+namespace App\Http\Controllers\News;
 
 use Illuminate\Http\Request;
-use Tuna976\NEWS\Models\Post;
+use App\Models\News\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
@@ -14,7 +14,7 @@ class UserSubmissionController extends Controller
      */
     public function create()
     {
-        return view('news::submissions.create');
+        return view('vendor.news.submissions.create');
     }
     
     /**
@@ -39,7 +39,7 @@ class UserSubmissionController extends Controller
         $post->source_url = $validated['source_url'] ?? null;
         $post->save();
         
-        return redirect()->route('news::submissions.thank-you')
+        return redirect()->route('vendor.news.submissions.thank-you')
             ->with('success', 'Your post has been submitted for review!');
     }
     
@@ -48,7 +48,7 @@ class UserSubmissionController extends Controller
      */
     public function thankYou()
     {
-        return view('news::submissions.thank-you');
+        return view('vendor.news.submissions.thank-you');
     }
     
     /**
@@ -62,7 +62,7 @@ class UserSubmissionController extends Controller
         // Check if user is logged in and matches the requested profile
         if (!Auth::check() || Auth::id() != $userId) {
             // Redirect to public profile instead
-            return redirect()->route('news::submissions.my-posts')
+            return redirect()->route('vendor.news.submissions.my-posts')
                 ->with('error', 'You can only view your own private posts page.');
         }
         
@@ -72,7 +72,7 @@ class UserSubmissionController extends Controller
                     ->orderBy('created_at', 'desc')  // Show all posts, including unpublished
                     ->paginate(10);
                     
-        return view('news::submissions.user-posts', compact('posts', 'user'));
+        return view('vendor.news.submissions.user-posts', compact('posts', 'user'));
     }
     
     /**
@@ -87,6 +87,6 @@ class UserSubmissionController extends Controller
                     ->orderBy('created_at', 'desc')
                     ->paginate(10);
                     
-        return view('news::submissions.my-posts', compact('posts', 'user'));
+        return view('vendor.news.submissions.my-posts', compact('posts', 'user'));
     }
 }

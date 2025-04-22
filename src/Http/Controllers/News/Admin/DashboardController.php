@@ -1,11 +1,11 @@
 <?php
 
-namespace Tuna976\NEWS\Http\Controllers\Admin;
+namespace App\Http\Controllers\News\Admin;
 
 use App\Http\Controllers\Controller;
-use Tuna976\NEWS\Models\Comment;
-use Tuna976\NEWS\Models\Post;
-use Tuna976\NEWS\Models\User;
+use App\Models\News\Comment;
+use App\Models\News\Post;
+use App\Models\News\NewsUser;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -21,6 +21,6 @@ class DashboardController extends Controller
             'recent_comments' => Comment::with(['post', 'user'])->latest()->take(5)->get(),
         ];
         
-        return view('news::news.admin.dashboard', compact('stats'));
+        return view('vendor.news.admin.dashboard', compact('stats'));
     }
 }
