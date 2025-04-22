@@ -3,15 +3,23 @@
 namespace Tuna976\NEWS;
 
 use Illuminate\Support\ServiceProvider;
+use Livewire\Livewire;
 use Tuna976\NEWS\Http\Middleware\AdminMiddleware;
 use Tuna976\NEWS\Http\Middleware\EnsureUserHasRole;
- 
+use Tuna976\NEWS\Http\Livewire\Admin\PostsTable;
+
 class NEWSServiceProvider extends ServiceProvider
 {
     public function boot()
     {
         // ✅ Load Views (Ensure directory path is correct)
         $this->loadViewsFrom(__DIR__.'/Resources/views', 'news');
+
+
+        // Register Livewire Component
+        if (class_exists(Livewire::class)) {
+            Livewire::component('posts-table', PostsTable::class);
+        }
 
         // ✅ Load Routes (Remove runningInConsole check)
         if (! $this->app->routesAreCached()) {

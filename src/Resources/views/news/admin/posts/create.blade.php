@@ -19,10 +19,10 @@
                 <div class="container text-center">
                     <div class="row">
                       <div class="col">
-                        <div class="mb-3">
+                        <div class="mb-3"> 
                             <select class="form-select border-dark" id="category_id" name="category_id">
                                 <option value="">Select Category</option>
-                                @foreach(\App\Models\Category::orderBy('name', 'ASC')->get() as $category)
+                                @foreach(Tuna976\NEWS\Models\Category::orderBy('name', 'ASC')->get() as $category)
                                     <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
                                         {{ $category->name }}
                                     </option>

@@ -53,7 +53,7 @@
                     <label for="category_id" class="form-label fw-bold">Category</label>
                     <select class="form-select @error('category_id') is-invalid @enderror" id="category_id" name="category_id" required>
                         <option value="">Select Category</option>
-                        @foreach(\App\Models\Category::orderBy('name', 'ASC')->get() as $category)
+                        @foreach(Tuna976\NEWS\Models\Category::orderBy('name', 'ASC')->get() as $category)
                             <option value="{{ $category->id }}" {{ (old('category_id', $post->category_id) == $category->id) ? 'selected' : '' }}>
                                 {{ $category->name }}
                             </option>
