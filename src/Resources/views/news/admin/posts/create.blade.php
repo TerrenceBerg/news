@@ -1,4 +1,4 @@
-@extends('news::news.admin.layouts.admin')
+@extends('vendor.news.admin.layouts.admin')
 
 @section('content')
 <h1 class="h3 text-center">Create New Post</h1>
@@ -22,7 +22,7 @@
                         <div class="mb-3"> 
                             <select class="form-select border-dark" id="category_id" name="category_id">
                                 <option value="">Select Category</option>
-                                @foreach(Tuna976\NEWS\Models\Category::orderBy('name', 'ASC')->get() as $category)
+                                @foreach(App\Models\News\Category::orderBy('name', 'ASC')->get() as $category)
                                     <option value="{{ $category->id }}" {{ old('category_id') == $category->id ? 'selected' : '' }}>
                                         {{ $category->name }}
                                     </option>

@@ -1,4 +1,4 @@
-@extends('news::news.admin.layouts.admin')
+@extends('vendor.news.admin.layouts.admin')
 
 @section('content')
     <h1 class="h3 mb-4">Dashboard</h1>

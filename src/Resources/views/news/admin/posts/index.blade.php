@@ -1,4 +1,4 @@
-@extends('news.admin.layouts.admin')
+@extends('vendor.news.admin.layouts.admin')
 
 @section('content')
     <div class="d-flex justify-content-between align-items-center mb-4">
@@ -8,6 +8,5 @@
         </a>
     </div>
 
-    <livewire:posts-table  />
-    {{-- @livewire('news::news.admin.posts-table') --}}
+    @livewire('news.admin.posts-table')
 @endsection

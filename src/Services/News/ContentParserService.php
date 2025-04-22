@@ -1,6 +1,6 @@
 <?php
 
-namespace Tuna976\NEWS\Services;
+namespace App\Services\News;
 
 class ContentParserService
 {

@@ -179,7 +179,7 @@
                 </a>
                 <a class="list-group-item list-group-item-action bg-dark text-light" href="{{ route('admin.submissions.index') }}"><i class="bi bi-file-text me-2"></i> User Submissions
                     @php
-                        $pendingCount = Tuna976\NEWS\Models\Post::where('is_published', 0)->count();
+                        $pendingCount = App\Models\News\Post::where('is_published', 0)->count();
                     @endphp
                     @if($pendingCount > 0)
                         <span class="badge bg-danger ms-2">{{ $pendingCount }}</span>

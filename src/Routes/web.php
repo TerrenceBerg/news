@@ -1,16 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Tuna976\NEWS\Http\Controllers\Admin\CategoryController as AdminCategoryController;
-use Tuna976\NEWS\Http\Controllers\Admin\CommentController as AdminCommentController;
-use Tuna976\NEWS\Http\Controllers\Admin\DashboardController as AdminDashboardController;
-use Tuna976\NEWS\Http\Controllers\Admin\PostController as AdminPostController;
-use Tuna976\NEWS\Http\Controllers\Admin\TagController as AdminTagController;
-use Tuna976\NEWS\Http\Controllers\Admin\UserController as AdminUserController;
-use Tuna976\NEWS\Http\Controllers\Admin\SubmissionController as AdminSubmissionController;
-use Tuna976\NEWS\Http\Controllers\News\HomeController;
-use Tuna976\NEWS\Http\Controllers\News\PostController;
-use Tuna976\NEWS\Http\Controllers\News\UserSubmissionController;
+use App\Http\Controllers\News\Admin\CategoryController as AdminCategoryController;
+use App\Http\Controllers\News\Admin\CommentController as AdminCommentController;
+use App\Http\Controllers\News\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\News\Admin\PostController as AdminPostController;
+use App\Http\Controllers\News\Admin\TagController as AdminTagController;
+use App\Http\Controllers\News\Admin\UserController as AdminUserController;
+app/Http/Controllers/News/Admin/UserController.php
+use App\Http\Controllers\News\Admin\SubmissionController as AdminSubmissionController;
+use App\Http\Controllers\News\HomeController;
+use App\Http\Controllers\News\PostController;
+use App\Http\Controllers\News\UserSubmissionController;
 use app\Http\Middleware\EnsureUserHasRole;
 
 /*
@@ -31,18 +32,18 @@ use app\Http\Middleware\EnsureUserHasRole;
         Route::get('/tag/{tag:slug}', [PostController::class, 'byTag'])->name('posts.tag');
         Route::get('/search', [PostController::class, 'search'])->name('posts.search');
         Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+
+        // Public user posts route
+            Route::get('/users/{userId}/posts', [UserSubmissionController::class, 'userPosts'])
+                ->name('user.posts');
+
+        // User submission routes
+            Route::get('/submit', [UserSubmissionController::class, 'create'])->name('submissions.create');
+            Route::post('/submit', [UserSubmissionController::class, 'store'])->name('submissions.store');
+            Route::get('/submit/thank-you', [UserSubmissionController::class, 'thankYou'])->name('submissions.thank-you');
+            Route::get('/my-posts', [UserSubmissionController::class, 'myPosts'])
+                ->name('submissions.my-posts');
     });
-
-// Public user posts route
-    Route::get('/users/{userId}/posts', [UserSubmissionController::class, 'userPosts'])
-        ->name('user.posts');
-
-// User submission routes
-    Route::get('/submit', [UserSubmissionController::class, 'create'])->name('submissions.create');
-    Route::post('/submit', [UserSubmissionController::class, 'store'])->name('submissions.store');
-    Route::get('/submit/thank-you', [UserSubmissionController::class, 'thankYou'])->name('submissions.thank-you');
-    Route::get('/my-posts', [UserSubmissionController::class, 'myPosts'])
-        ->name('submissions.my-posts');
 
 // Admin routes - Use class directly instead of alias
     Route::/* middleware(['auth', EnsureUserHasRole::class.':admin'])-> */prefix('admin')->name('admin.')->group(function () {

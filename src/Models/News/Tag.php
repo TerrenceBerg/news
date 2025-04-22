@@ -1,7 +1,7 @@
 <?php
 
-namespace Tuna976\NEWS\Models;
-use Tuna976\NEWS\Models\Post;
+namespace App\Models\News;
+use App\Models\News\Post;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 

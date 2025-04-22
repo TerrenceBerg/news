@@ -1,4 +1,4 @@
-@extends('news::news.layouts.app')
+@extends('news.layouts.app')
 
 @section('title', 'Posts tagged with "' . $tag->name . '" | ' . config('app.name'))
 @section('meta_description', 'Browse all articles and news tagged with "' . $tag->name . '" on ' . config('app.name'))
@@ -71,7 +71,7 @@
                 <div class="card-header">Categories</div>
                 <div class="card-body p-0">
                     <div class="list-group list-group-flush">
-                        @foreach(Tuna976\NEWS\Models\Category::withCount('posts')->get() as $category)
+                        @foreach(App\Models\News\Category::withCount('posts')->get() as $category)
                             <a href="{{ route('posts.category', $category->slug) }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                                 {{ $category->name }}
                                 <span class="badge bg-primary rounded-pill">{{ $category->posts_count }}</span>

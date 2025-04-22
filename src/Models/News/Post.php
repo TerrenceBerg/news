@@ -1,10 +1,10 @@
 <?php
 
-namespace Tuna976\NEWS\Models;
-use Tuna976\NEWS\Models\Tag;
-use Tuna976\NEWS\Models\Comment;
-use Tuna976\NEWS\Models\Category;
-use Tuna976\NEWS\Models\PostImage;
+namespace App\Models\News;
+use App\Models\News\Tag;
+use App\Models\News\Comment;
+use App\Models\News\Category;
+use App\Models\News\PostImage;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Tuna976\NEWS\Services\ImageOptimizationService;

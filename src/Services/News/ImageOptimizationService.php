@@ -1,5 +1,5 @@
 <?php
-namespace Tuna976\NEWS\Services;
+namespace App\Services\News;
 
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Log;

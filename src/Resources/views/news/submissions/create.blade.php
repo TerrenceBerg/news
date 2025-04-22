@@ -1,4 +1,4 @@
-@extends('news::news.layouts.app')
+@extends('news.layouts.app')
 
 @section('title', 'Submit News')
 

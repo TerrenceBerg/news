@@ -1,6 +1,6 @@
 <?php
 
-namespace Tuna976\NEWS\Models;
+namespace App\Models\News;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Tuna976\NEWS\Models\Post;
@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class NewsUser extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;

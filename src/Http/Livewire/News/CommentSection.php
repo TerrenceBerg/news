@@ -1,9 +1,9 @@
 <?php
 
-namespace Tuna976\NEWS\Livewire\News;
+namespace App\Http\Livewire\News;
 
-use Tuna976\NEWS\Models\Comment;
-use Tuna976\NEWS\Models\Post;
+use App\Models\News\Comment;
+use App\Models\News\Post;
 use Livewire\Component;
 
 class CommentSection extends Component
@@ -39,7 +39,7 @@ class CommentSection extends Component
     
     public function render()
     {
-        return view('livewire.news.comment-section', [
+        return view('vendor.news.livewire.news.comment-section', [
             'comments' => $this->post->comments()
                 ->where('is_approved', true)
                 ->with('user')

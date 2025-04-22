@@ -1,4 +1,4 @@
-@extends('news::news.admin.layouts.admin')
+@extends('vendor.news.admin.layouts.admin')
 
 @section('title', 'Edit Submission')
 

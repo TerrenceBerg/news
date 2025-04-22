@@ -88,13 +88,13 @@
                                 Categories
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="categoriesDropdown">
-                                @foreach(Tuna976\NEWS\Models\Category::orderBy('name', 'ASC')->get() as $category)
+                                @foreach(App\Models\News\Category::orderBy('name', 'ASC')->get() as $category)
                                     <li><a class="dropdown-item" href="{{ route('posts.category', $category->slug) }}">{{ $category->name }}</a></li>
                                 @endforeach
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('submissions.create') }}">
+                            <a class="nav-link" href="{{ route('news.submissions.create') }}">
                                 <i class="bi bi-pencil-square me-1"></i> Submit News
                             </a>
                         </li>
@@ -212,7 +212,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="list-group">
-                            @foreach(Tuna976\NEWS\Models\Category::withCount('posts')->get() as $category)
+                            @foreach(App\Models\News\Category::withCount('posts')->get() as $category)
                                 <a href="{{ route('posts.category', $category->slug) }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                                     {{ $category->name }}
                                     <span class="badge bg-primary rounded-pill">{{ $category->posts_count }}</span>
