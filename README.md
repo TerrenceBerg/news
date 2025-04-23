@@ -14,8 +14,9 @@ php artisan ui bootstrap --auth
 npm install bootstrap-icons --save-dev
 ```
 
-## Install the Livewide assets.
+## Install the Livewire and assets.
 ```bash
+composer require livewire/livewire
 php artisan livewire:publish --assets
 ```
 

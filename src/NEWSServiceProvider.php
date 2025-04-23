@@ -36,9 +36,8 @@ class NEWSServiceProvider extends ServiceProvider
             __DIR__.'/Services/News' => app_path('/Services/News'),
             __DIR__.'/Events' => app_path('/Events'),
             __DIR__.'/Resources/views/news' => resource_path('/views/vendor/News'),
-            __DIR__.'/Resources/views/vendor/pagination' => resource_path('/views/vendor/pagination'),
+            __DIR__.'/Resources/views/vendor' => resource_path('/views/vendor'),
         ], 'news-files');
-
         $this->loadMigrationsFrom(__DIR__.'/Database/migrations');
     }
 
