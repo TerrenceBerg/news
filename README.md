@@ -24,6 +24,7 @@ php artisan livewire:publish --assets
 ```bash
 composer require 976-tuna/news
 php artisan vendor:publish --provider="Tuna976\NEWS\NEWSServiceProvider" --tag="news-files"
+php artisan migrate
 ```
 
 ## Integration
