@@ -6,7 +6,9 @@ use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
 use Tuna976\NEWS\Http\Middleware\AdminMiddleware;
 use Tuna976\NEWS\Http\Middleware\EnsureUserHasRole;
-use Tuna976\NEWS\Http\Livewire\Admin\PostsTable;
+use App\Http\Livewire\Admin\PostsTable;
+use App\Http\Livewire\Admin\PostForm;
+use App\Http\Livewire\CommentSection;
 
 class NEWSServiceProvider extends ServiceProvider
 {
@@ -17,7 +19,10 @@ class NEWSServiceProvider extends ServiceProvider
 
          // Register Livewire Component
         if (class_exists(Livewire::class)) {
-            Livewire::component('news-posts-table', PostsTable::class);}
+            Livewire::component('news-posts-table', PostsTable::class);
+            Livewire::component('news-posts-form', PostForm::class);
+            Livewire::component('news-comment-section', CommentSection::class);
+        }
 
         // Register Livewire Component
         Livewire::component('posts-table', Tuna976\NEWS\Http\Livewire\PostsTable::class);

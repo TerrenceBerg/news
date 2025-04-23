@@ -157,6 +157,11 @@
         <div class="card mb-4">
             <div class="card-header">Comments</div>
             <div class="card-body">
+                @livewire('news-comment-section', ['post' => $post], key($post->id))
+                {{-- Uncomment the line below to use the alternative comment section --}}
+                {{-- or --}}
+                <livewire:news-comment-section', ['post' => $post], key($post->id))
+                {{-- Uncomment the line below to use the alternative comment section --}} />
                 {{-- @livewire('news.comment-section', ['post' => $post]) --}}
             </div>
         </div>

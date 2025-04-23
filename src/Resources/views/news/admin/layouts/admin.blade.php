@@ -9,12 +9,10 @@
     
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="{{url('css/blog.css')}}">
 
     <!-- Load scripts in correct order -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
     <!-- Summernote CSS and JS files - correct version for Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote-lite.min.css" rel="stylesheet">
@@ -28,12 +26,6 @@
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     
     @livewireStyles
-    
-    <!-- Add Bootstrap loader for fallback -->
-    <script src="{{ asset('js/bootstrap-loader.js') }}"></script>
-    
-    <!-- Version checker for debugging -->
-    <script src="{{ asset('js/version-checker.js') }}"></script>
     
     <style>
         body {
