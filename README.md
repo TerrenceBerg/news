@@ -14,6 +14,11 @@ php artisan ui bootstrap --auth
 npm install bootstrap-icons --save-dev
 ```
 
+## Install the Livewide assets.
+```bash
+php artisan livewire:publish --assets
+```
+
 ## Inside your project, open the file resources\sass\app.scss and add :
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
@@ -25,19 +30,26 @@ php artisan vendor:publish
 
 ## Integration
 
-Add the following to your layout file:
-
-### In the `<head>` section:
+### Add the following to your user model:
 ```html
+// Role-based authentication methods
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
+    }
+    
+    public function isAuthor(): bool
+    {
+        return $this->role === 'author' || $this->isAdmin();
+    }
+    
+    public function posts(): HasMany
+    {
+        return $this->hasMany(Post::class);
+    }
+    
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
 ```
-
-### In the `<body>` section:
-```javascript
-```
-### where ever you would like the button to show add this
-```html 
-```
-
-### Testing 
-
-    "repositories": [  {    "type": "path",    "url": "/Users/terrencepro2/Sites/news"  }]
