@@ -19,13 +19,11 @@ npm install bootstrap-icons --save-dev
 php artisan livewire:publish --assets
 ```
 
-## Inside your project, open the file resources\sass\app.scss and add :
-@import 'bootstrap-icons/font/bootstrap-icons.css';
 
 ## Install Package
 ```bash
 composer require 976-tuna/news
-php artisan vendor:publish
+php artisan vendor:publish --provider="Tuna976\NEWS\NEWSServiceProvider" --tag="news-files"
 ```
 
 ## Integration
@@ -52,4 +50,9 @@ php artisan vendor:publish
     {
         return $this->hasMany(Comment::class);
     }
+```
+
+## Inside your project, open the file resources\sass\app.scss and add :
+```html
+@import 'bootstrap-icons/font/bootstrap-icons.css';
 ```
