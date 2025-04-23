@@ -87,7 +87,7 @@
                     </div>
                 @endif
                 
-                <div class="mb-4">
+                {{-- <div class="mb-4">
                     <label class="form-label fw-bold">Post Images</label>
                     
                     <div id="image-upload-container" class="border rounded p-3 bg-light mb-3"
@@ -122,13 +122,13 @@
                             </div>
                         @endforeach
                     </div>
-                </div>
+                </div> --}}
                 
-                <div class="mb-4">
+                {{-- <div class="mb-4">
                     <label class="form-label fw-bold">Tags</label>
                     <div class="d-flex flex-wrap gap-2 border p-3 rounded bg-light">
                         @php $postTags = $post->tags->pluck('id')->toArray(); @endphp
-                        @foreach(\App\Models\Tag::all() as $tag)
+                        @foreach(\App\Models\News\Tag::all() as $tag)
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="{{ $tag->id }}" 
                                       id="tag-{{ $tag->id }}" name="tags[]" {{ in_array($tag->id, old('tags', $postTags)) ? 'checked' : '' }}>
@@ -138,7 +138,7 @@
                             </div>
                         @endforeach
                     </div>
-                </div>
+                </div> --}}
                 
                 <div class="d-grid d-sm-flex gap-2">
                     <button type="submit" class="btn btn-primary">

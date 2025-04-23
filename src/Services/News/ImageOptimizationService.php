@@ -47,10 +47,18 @@ class ImageOptimizationService
                     }
                     
                     // Save as WebP
-                    imagewebp($image, $fullPath, $quality);
+                    $webpSuccess = imagewebp($image, $fullPath, $quality);
                     imagedestroy($image);
                     
-                    return $webpPath;
+                    // Delete the original file if WebP conversion was successful
+                    if ($webpSuccess) {
+                        Storage::disk('public')->delete($originalPath);
+                        Log::info('Original image deleted after WebP conversion', [
+                            'original' => $originalPath,
+                            'webp' => $webpPath,
+                        ]);
+                        return $webpPath;
+                    }
                 }
             }
             

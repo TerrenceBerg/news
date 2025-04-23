@@ -74,7 +74,7 @@
                 </div>
                 
                 <!-- New section for post images -->
-                <div class="mb-4">
+                {{-- <div class="mb-4">
                     <label class="form-label fw-bold">Additional Post Images</label>
                     
                     <div id="image-upload-container" class="border rounded p-3 bg-light mb-3"
@@ -97,12 +97,12 @@
                     
                     <!-- Hidden field to store temporary image data -->
                     <input type="hidden" id="temp-images" name="temp_images" value="">
-                </div>
+                </div> --}}
                 
                 {{-- <div class="mb-3">
                     <label class="form-label fw-bold">Tags</label>
                     <div class="d-flex flex-wrap gap-2 border p-3 rounded bg-light">
-                        @foreach(\App\Models\Tag::all() as $tag)
+                        @foreach(\App\Models\News\Tag::all() as $tag)
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="{{ $tag->id }}" 
                                       id="tag-{{ $tag->id }}" name="tags[]" {{ in_array($tag->id, old('tags', [])) ? 'checked' : '' }}>

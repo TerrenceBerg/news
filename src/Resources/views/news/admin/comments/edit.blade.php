@@ -46,7 +46,7 @@
             <dl class="row">
                 <dt class="col-sm-3">Post:</dt>
                 <dd class="col-sm-9">
-                    <a href="{{ route('posts.show', $comment->post->slug) }}" target="_blank">
+                    <a href="{{ route('news.posts.show', $comment->post->slug) }}" target="_blank">
                         {{ $comment->post->title }}
                     </a>
                 </dd>

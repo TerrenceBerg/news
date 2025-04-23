@@ -28,7 +28,10 @@ class PostController extends Controller
     
     public function index(): View
     {
-        $posts = Post::with(['user', 'category'])->latest()->paginate(10);
+        $posts = Post::with(['user', 'category'])
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
+        
         return view('vendor.news.admin.posts.index', compact('posts'));
     }
 

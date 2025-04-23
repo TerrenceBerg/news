@@ -31,7 +31,7 @@
                             <tr>
                                 <td>{{ Str::limit($comment->content, 50) }}</td>
                                 <td class="d-none d-md-table-cell">
-                                    <a href="{{ route('posts.show', $comment->post->slug) }}" target="_blank">
+                                    <a href="{{ route('news.posts.show', $comment->post->slug) }}" target="_blank">
                                         {{ Str::limit($comment->post->title, 30) }}
                                     </a>
                                 </td>

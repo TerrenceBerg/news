@@ -41,7 +41,7 @@
                             
                             @if($post->source_url)
                             <div class="embed-preview">
-                                {!! app(\App\Services\ContentParserService::class)->parseUrl($post->source_url) !!}
+                                {!! app(\App\Services\News\ContentParserService::class)->parseUrl($post->source_url) !!}
                             </div>
                             @endif
                             
@@ -85,7 +85,7 @@
                 <div class="card-header">All Tags</div>
                 <div class="card-body">
                     <div class="d-flex flex-wrap gap-2">
-                        @foreach(\App\Models\Tag::withCount('posts')->get() as $t)
+                        @foreach(\App\Models\News\Tag::withCount('posts')->get() as $t)
                             <a href="{{ route('news.posts.tag', $t->slug) }}" class="text-decoration-none mb-1">
                                 <span class="badge {{ $t->id === $tag->id ? 'bg-primary' : 'bg-secondary' }}">
                                     {{ $t->name }} ({{ $t->posts_count }})

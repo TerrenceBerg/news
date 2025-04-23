@@ -69,7 +69,7 @@
                         
                         @if($post->source_url)
                         <div class="embed-preview">
-                            {!! app(\App\Services\ContentParserService::class)->parseUrl($post->source_url) !!}
+                            {!! app(\App\Services\News\ContentParserService::class)->parseUrl($post->source_url) !!}
                         </div>
                         @endif
                         

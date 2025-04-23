@@ -11,7 +11,7 @@ use App\Http\Controllers\News\Admin\SubmissionController as AdminSubmissionContr
 use App\Http\Controllers\News\HomeController;
 use App\Http\Controllers\News\PostController;
 use App\Http\Controllers\News\UserSubmissionController;
-use app\Http\Middleware\EnsureUserHasRole;
+use App\Http\Middleware\EnsureUserHasRole;
 
 /*
 |--------------------------------------------------------------------------
@@ -81,6 +81,10 @@ use app\Http\Middleware\EnsureUserHasRole;
         // Comments
             Route::get('/comments', [AdminCommentController::class, 'index'])->name('comments.index');
             Route::get('/comments/{comment}/edit', [AdminCommentController::class, 'edit'])->name('comments.edit');
+            Route::put('/comments/{comment}', [AdminCommentController::class, 'update'])->name('comments.update');
+            Route::delete('/comments/{comment}', [AdminCommentController::class, 'destroy'])->name('comments.destroy');
+            Route::post('/comments/{comment}/approve', [AdminCommentController::class, 'approve'])->name('comments.approve');
+            Route::post('/comments/{comment}/reject', [AdminCommentController::class, 'reject'])->name('comments.reject');
         // Users
             Route::get('/users', [AdminUserController::class, 'index'])->name('users.index');
             Route::get('/users/{user}/edit', [AdminUserController::class, 'edit'])->name('users.edit');

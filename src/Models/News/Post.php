@@ -9,7 +9,7 @@ use App\Models\News\PostImage;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Tuna976\NEWS\Services\ImageOptimizationService;
+use App\Services\News\ImageOptimizationService;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 

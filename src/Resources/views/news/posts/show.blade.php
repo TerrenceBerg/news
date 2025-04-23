@@ -117,7 +117,7 @@
                         <i class="bi bi-share me-2"></i>Source Content
                     </div>
                     <div class="card-body">
-                        {!! app(\App\Services\ContentParserService::class)->parseUrl($post->source_url) !!}
+                        {!! app(\App\Services\News\ContentParserService::class)->parseUrl($post->source_url) !!}
                     </div>
                 </div>
             </div>
@@ -157,12 +157,7 @@
         <div class="card mb-4">
             <div class="card-header">Comments</div>
             <div class="card-body">
-                @livewire('news-comment-section', ['post' => $post], key($post->id))
-                {{-- Uncomment the line below to use the alternative comment section --}}
-                {{-- or --}}
-                <livewire:news-comment-section', ['post' => $post], key($post->id))
-                {{-- Uncomment the line below to use the alternative comment section --}} />
-                {{-- @livewire('news.comment-section', ['post' => $post]) --}}
+                @livewire('news-comment-section', ['post' => $post])
             </div>
         </div>
 

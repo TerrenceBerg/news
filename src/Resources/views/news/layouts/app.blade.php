@@ -43,7 +43,10 @@
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="{{url('css/blog.css')}}">
-    
+    <!-- Load scripts in correct order -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+
     <!-- jQuery and Colorbox -->
     <script src="{{ asset('js/jquery.colorbox.min.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('css/colorbox.css') }}">
@@ -60,9 +63,6 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss'])
     @livewireStyles
-    
-    <!-- Additional CSS -->
-    <link href="{{ asset('css/lightbox.css') }}" rel="stylesheet">
 
 </head>
 <body>

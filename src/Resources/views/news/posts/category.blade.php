@@ -52,7 +52,7 @@
                     <div class="col-4">
                         @if($post->display_image)
                             <a href="{{ url($post->display_image_url) }}" class="colorbox-image" title="{{ $post->title }}">
-                                <img src="{{ url($post->display_image_url_webp0) }}" class="img-fluid rounded-start h-100 object-fit-cover w-100" alt="{{ $post->title }}">
+                                <img src="{{ url($post->display_image_url_webp) }}" class="img-fluid rounded-start h-100 object-fit-cover w-100" alt="{{ $post->title }}">
                             </a>
                         @else
                             <div class="bg-light text-center py-5 h-100 d-flex align-items-center justify-content-center">
@@ -67,7 +67,7 @@
                             
                             @if($post->source_url)
                             <div class="embed-preview">
-                                {!! app(\App\Services\ContentParserService::class)->parseUrl($post->source_url) !!}
+                                {!! app(\App\Services\News\ContentParserService::class)->parseUrl($post->source_url) !!}
                             </div>
                             @endif
                             
