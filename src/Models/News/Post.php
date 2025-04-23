@@ -1,13 +1,17 @@
 <?php
 
 namespace App\Models\News;
+use App\Models\User;
 use App\Models\News\Tag;
 use App\Models\News\Comment;
 use App\Models\News\Category;
 use App\Models\News\PostImage;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Tuna976\NEWS\Services\ImageOptimizationService;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Post extends Model
 {

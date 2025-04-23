@@ -7,6 +7,7 @@ use App\Models\News\Tag;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Support\Str;
 
 class TagController extends Controller
 {
@@ -24,5 +25,66 @@ class TagController extends Controller
     public function edit(Tag $tag): View
     {
         return view('vendor.news.admin.tags.edit', compact('tag'));
+    }
+
+    /**
+     * Store a newly created tag in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(Request $request): RedirectResponse
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255|unique:tags',
+            'slug' => 'nullable|string|max:255|unique:tags',
+        ]);
+        
+        if (empty($validated['slug'])) {
+            $validated['slug'] = Str::slug($validated['name']);
+        }
+        
+        Tag::create($validated);
+        
+        return redirect()->route('admin.tags.index')
+            ->with('success', 'Tag created successfully.');
+    }
+
+    /**
+     * Update the specified tag in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\News\Tag  $tag
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function update(Request $request, Tag $tag): RedirectResponse
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:255|unique:tags,name,' . $tag->id,
+            'slug' => 'nullable|string|max:255|unique:tags,slug,' . $tag->id,
+        ]);
+        
+        if (empty($validated['slug'])) {
+            $validated['slug'] = Str::slug($validated['name']);
+        }
+        
+        $tag->update($validated);
+        
+        return redirect()->route('admin.tags.index')
+            ->with('success', 'Tag updated successfully.');
+    }
+
+    /**
+     * Remove the specified tag from storage.
+     *
+     * @param  \App\Models\News\Tag  $tag
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function destroy(Tag $tag): RedirectResponse
+    {
+        $tag->delete();
+        
+        return redirect()->route('admin.tags.index')
+            ->with('success', 'Tag deleted successfully.');
     }
 }

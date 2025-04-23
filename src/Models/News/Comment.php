@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Models\News;
-use App\Models\News\Post;
 use App\Models\User;
+use App\Models\News\Post;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Comment extends Model
 {

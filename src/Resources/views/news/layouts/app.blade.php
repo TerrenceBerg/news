@@ -89,7 +89,7 @@
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="categoriesDropdown">
                                 @foreach(App\Models\News\Category::orderBy('name', 'ASC')->get() as $category)
-                                    <li><a class="dropdown-item" href="{{ route('posts.category', $category->slug) }}">{{ $category->name }}</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('news.posts.category', $category->slug) }}">{{ $category->name }}</a></li>
                                 @endforeach
                             </ul>
                         </li>
@@ -127,7 +127,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                     <a class="dropdown-item" href="{{ route('user.posts', Auth::id()) }}">
+                                     <a class="dropdown-item" href="{{ route('news.user.posts', Auth::id()) }}">
                                         <i class="bi bi-file-text me-1"></i> My Posts
                                     </a>
                                     
@@ -149,7 +149,7 @@
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('submissions.my-posts') }}">
+                                <a class="nav-link" href="{{ route('news.submissions.my-posts') }}">
                                     <i class="bi bi-file-earmark-text me-1"></i> My Posts
                                 </a>
                             </li>
@@ -213,7 +213,7 @@
                     <div class="modal-body">
                         <div class="list-group">
                             @foreach(App\Models\News\Category::withCount('posts')->get() as $category)
-                                <a href="{{ route('posts.category', $category->slug) }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                                <a href="{{ route('news.posts.category', $category->slug) }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                                     {{ $category->name }}
                                     <span class="badge bg-primary rounded-pill">{{ $category->posts_count }}</span>
                                 </a>

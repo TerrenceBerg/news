@@ -42,7 +42,7 @@
         <h2 class="h4 mb-3 px-2 px-md-0">Recent Posts</h2>
 
         @forelse($recentPosts as $post)
-        <div class="card mb-3 rounded" style="border-color: #00FF00;border-radius: 25px;">
+        <div class="card mb-3 rounded">
             <div class="row g-0">
                 @if($post->display_image)
                     <div class="col-md-4 col-lg-4">
@@ -61,7 +61,7 @@
                 @endif
                     <div class="card-body">
                         <h5 class="card-title">
-                            <a href="{{ route('posts.show', $post->slug) }}" class="text-decoration-none">
+                            <a href="{{ route('news.posts.show', $post->slug) }}" class="text-decoration-none">
                                 {{ $post->title }}
                             </a>
                         </h5>
@@ -78,9 +78,9 @@
                                 <span class="badge bg-secondary">{{ $post->category->name }}</span>
                                 <small class="text-muted d-none d-md-inline-block ms-2"></small>
                             </div>
-                            <a href="{{ route('posts.show', $post->slug) }}" class="btn btn-sm btn-outline-primary ms-3">Read More</a>
+                            <a href="{{ route('news.posts.show', $post->slug) }}" class="btn btn-sm btn-outline-primary ms-3">Read More</a>
                         </div>
-                        <a href="{{ route('user.posts', $post->user_id) }}" class="text-decoration-none">
+                        <a href="{{ route('news.user.posts', $post->user_id) }}" class="text-decoration-none">
                             More posts by {{ $post->user->name }}
                         </a>
                     </div>

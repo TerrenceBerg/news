@@ -8,6 +8,7 @@ use App\Models\News\Post;
 use App\Models\News\NewsUser;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use App\Models\News\User as User;
 
 class DashboardController extends Controller
 {

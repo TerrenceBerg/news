@@ -4,6 +4,7 @@ namespace App\Models\News;
 use App\Models\News\Post;
 use Illuminate\Database\Eloquent\Model;
 use App\Services\ImageOptimizationService;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class PostImage extends Model
 {

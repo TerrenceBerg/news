@@ -1,10 +1,10 @@
-@extends('news.layouts.app')
+@extends('vendor.news.layouts.app')
 
 @section('title', $post->title . ' | ' . config('app.name'))
 @section('meta_description', $post->excerpt ?? Str::limit(strip_tags($post->content), 160))
 @section('meta_author', $post->user->name)
 @section('meta_keywords', $post->tags->pluck('name')->join(', '))
-@section('canonical_url', route('posts.show', $post->slug))
+@section('canonical_url', route('news.posts.show', $post->slug))
 
 @section('og_type', 'article')
 @section('og_title', $post->title)
@@ -54,7 +54,7 @@
     "description": "{{ $post->excerpt ?? Str::limit(strip_tags($post->content), 160) }}",
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": "{{ route('posts.show', $post->slug) }}"
+        "@id": "{{ route('news.posts.show', $post->slug) }}"
     }
 }
 </script>
@@ -84,7 +84,7 @@
                 
                 @if(auth()->check() && (auth()->user()->id === $post->user_id || auth()->user()->isAdmin()))
                 <div>
-                    <a href="{{ route('news.admin.posts.edit', $post) }}" class="btn btn-sm btn-outline-success">
+                    {{-- <a href="{{ route('news.posts.edit', $post) }}" class="btn btn-sm btn-outline-success"> --}}
                         <i class="bi bi-pencil me-1"></i>Edit
                     </a>
                 </div>
@@ -157,7 +157,7 @@
         <div class="card mb-4">
             <div class="card-header">Comments</div>
             <div class="card-body">
-                @livewire('news.comment-section', ['post' => $post])
+                {{-- @livewire('news.comment-section', ['post' => $post]) --}}
             </div>
         </div>
 

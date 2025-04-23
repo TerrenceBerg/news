@@ -15,11 +15,12 @@ class NEWSServiceProvider extends ServiceProvider
         // ✅ Load Views (Ensure directory path is correct)
         $this->loadViewsFrom(__DIR__.'/Resources/views', 'news');
 
+         // Register Livewire Component
+        if (class_exists(Livewire::class)) {
+            Livewire::component('news-posts-table', PostsTable::class);}
 
         // Register Livewire Component
-        if (class_exists(Livewire::class)) {
-            Livewire::component('posts-table', PostsTable::class);
-        }
+        Livewire::component('posts-table', Tuna976\NEWS\Http\Livewire\PostsTable::class);
 
         // ✅ Load Routes (Remove runningInConsole check)
         if (! $this->app->routesAreCached()) {

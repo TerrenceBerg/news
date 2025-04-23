@@ -1,4 +1,4 @@
-@extends('news.layouts.app')
+@extends('vendor.news.layouts.app')
 
 @section('title', 'Submit News')
 

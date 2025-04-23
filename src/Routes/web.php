@@ -22,7 +22,7 @@ use app\Http\Middleware\EnsureUserHasRole;
 // Auth routes
     // Auth::routes();
 // Public routes
-    Route::prefix('news')->name('news.')->group(function () {
+    Route::middleware(['web'])->prefix('news')->name('news.')->group(function () {
     // Post routes 
         Route::get('/', [HomeController::class, 'index'])->name('home');
         Route::get('/home', [HomeController::class, 'index'])->name('home');
@@ -74,13 +74,17 @@ use app\Http\Middleware\EnsureUserHasRole;
         // Tags
             Route::get('/tags', [AdminTagController::class, 'index'])->name('tags.index');
             Route::get('/tags/create', [AdminTagController::class, 'create'])->name('tags.create');
+            Route::post('/tags', [AdminTagController::class, 'store'])->name('tags.store');
             Route::get('/tags/{tag}/edit', [AdminTagController::class, 'edit'])->name('tags.edit');
+            Route::put('/tags/{tag}', [AdminTagController::class, 'update'])->name('tags.update');
+            Route::delete('/tags/{tag}', [AdminTagController::class, 'destroy'])->name('tags.destroy');
         // Comments
             Route::get('/comments', [AdminCommentController::class, 'index'])->name('comments.index');
             Route::get('/comments/{comment}/edit', [AdminCommentController::class, 'edit'])->name('comments.edit');
         // Users
             Route::get('/users', [AdminUserController::class, 'index'])->name('users.index');
             Route::get('/users/{user}/edit', [AdminUserController::class, 'edit'])->name('users.edit');
+            Route::put('/users/{user}', [AdminUserController::class, 'update'])->name('users.update');
         // Submission management routes
             Route::get('/submissions', [AdminSubmissionController::class, 'index'])->name('submissions.index');
             Route::get('/submissions/{id}/edit', [AdminSubmissionController::class, 'edit'])->name('submissions.edit');

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\News\Post;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use App\Http\Controllers\Controller;
 
 class UserSubmissionController extends Controller
 {
@@ -39,7 +40,7 @@ class UserSubmissionController extends Controller
         $post->source_url = $validated['source_url'] ?? null;
         $post->save();
         
-        return redirect()->route('vendor.news.submissions.thank-you')
+        return redirect()->route('news.submissions.thank-you')
             ->with('success', 'Your post has been submitted for review!');
     }
     
@@ -62,7 +63,7 @@ class UserSubmissionController extends Controller
         // Check if user is logged in and matches the requested profile
         if (!Auth::check() || Auth::id() != $userId) {
             // Redirect to public profile instead
-            return redirect()->route('vendor.news.submissions.my-posts')
+            return redirect()->route('news.submissions.my-posts')
                 ->with('error', 'You can only view your own private posts page.');
         }
         

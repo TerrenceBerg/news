@@ -1,8 +1,8 @@
-@extends('news.layouts.app')
+@extends('vendor.news.layouts.app')
 
 @section('title', $category->name . ' News & Articles | ' . config('app.name'))
 @section('meta_description', $category->description ?? 'Browse the latest ' . $category->name . ' news and articles on ' . config('app.name'))
-@section('canonical_url', route('posts.category', $category->slug))
+@section('canonical_url', route('news.posts.category', $category->slug))
 
 @section('og_type', 'website')
 @section('og_title', $category->name . ' | ' . config('app.name'))
@@ -16,7 +16,7 @@
     "@type": "CollectionPage",
     "headline": "{{ $category->name }} - News & Articles",
     "description": "{{ $category->description ?? 'Browse the latest ' . $category->name . ' news and articles' }}",
-    "url": "{{ route('posts.category', $category->slug) }}",
+    "url": "{{ route('news.posts.category', $category->slug) }}",
     "publisher": {
         "@type": "Organization",
         "name": "{{ config('app.name') }}",
