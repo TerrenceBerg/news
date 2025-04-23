@@ -13,12 +13,12 @@ class UserController extends Controller
     public function index(): View
     {
         $users = User::latest()->paginate(10);
-        return view('vendor.news.admin.users.index', compact('users'));
+        return view('vendor.News.admin.users.index', compact('users'));
     }
 
     public function edit(User $user): View
     {
-        return view('vendor.news.admin.users.edit', compact('user'));
+        return view('vendor.News.admin.users.edit', compact('user'));
     }
 
     /**

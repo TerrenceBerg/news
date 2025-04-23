@@ -24,6 +24,6 @@ class HomeController extends Controller
         $categories = Category::withCount('posts')->get();
         $tags = Tag::withCount('posts')->get();
             
-        return view('vendor.news.home', compact('featuredPosts', 'recentPosts', 'categories', 'tags'));
+        return view('vendor.News.home', compact('featuredPosts', 'recentPosts', 'categories', 'tags'));
     }
 }

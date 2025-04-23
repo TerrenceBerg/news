@@ -39,7 +39,7 @@ class CommentSection extends Component
     
     public function render()
     {
-        return view('vendor.news.livewire.news.comment-section', [
+        return view('vendor.News.livewire.news.comment-section', [
             'comments' => $this->post->comments()
                 ->where('is_approved', true)
                 ->with('user')

@@ -37,7 +37,7 @@ class PostsTable extends Component
     
     public function render()
     {
-        return view('vendor.news.livewire.admin.posts-table', [
+        return view('vendor.News.livewire.admin.posts-table', [
             'posts' => Post::with(['user', 'category'])
                 ->where('title', 'like', '%'.$this->search.'%')
                 ->orderBy($this->sortField, $this->sortDirection)

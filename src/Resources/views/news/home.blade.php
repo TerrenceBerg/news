@@ -1,9 +1,9 @@
-@extends('vendor.news.layouts.app')
+@extends('vendor.News.layouts.app')
 
 @section('title', config('app.name') . ' - Latest News & Articles')
 @section('meta_description', 'Stay updated with the latest news, technology updates, business insights and more on ' . config('app.name'))
 @section('meta_keywords', 'news, articles, latest news, trending, technology, business')
-@section('canonical_url', route('home'))
+@section('canonical_url', route('news.home'))
 
 @section('og_type', 'website')
 @section('og_title', config('app.name') . ' - Latest News & Articles')

@@ -98,6 +98,6 @@ class PostForm extends Component
     
     public function render()
     {
-        return view('vendor.news.livewire.admin.post-form');
+        return view('vendor.News.livewire.admin.post-form');
     }
 }

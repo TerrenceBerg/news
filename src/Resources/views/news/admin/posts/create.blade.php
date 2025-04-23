@@ -1,4 +1,4 @@
-@extends('vendor.news.admin.layouts.admin')
+@extends('vendor.News.admin.layouts.admin')
 
 @section('content')
 <h1 class="h3 text-center">Create New Post</h1>

@@ -14,12 +14,12 @@ class CategoryController extends Controller
     public function index(): View
     {
         $categories = Category::withCount('posts')->latest()->paginate(10);
-        return view('vendor.news.admin.categories.index', compact('categories'));
+        return view('vendor.News.admin.categories.index', compact('categories'));
     }
 
     public function create(): View
     {
-        return view('vendor.news.admin.categories.create');
+        return view('vendor.News.admin.categories.create');
     }
     
     public function store(Request $request): RedirectResponse
@@ -42,7 +42,7 @@ class CategoryController extends Controller
 
     public function edit(Category $category): View
     {
-        return view('vendor.news.admin.categories.edit', compact('category'));
+        return view('vendor.News.admin.categories.edit', compact('category'));
     }
     
     public function update(Request $request, Category $category): RedirectResponse

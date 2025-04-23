@@ -1,4 +1,4 @@
-@extends('vendor.news.layouts.app')
+@extends('vendor.News.layouts.app')
 
 @section('title', 'Posts tagged with "' . $tag->name . '" | ' . config('app.name'))
 @section('meta_description', 'Browse all articles and news tagged with "' . $tag->name . '" on ' . config('app.name'))

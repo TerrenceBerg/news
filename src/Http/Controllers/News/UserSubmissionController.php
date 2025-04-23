@@ -15,7 +15,7 @@ class UserSubmissionController extends Controller
      */
     public function create()
     {
-        return view('vendor.news.submissions.create');
+        return view('vendor.News.submissions.create');
     }
     
     /**
@@ -49,7 +49,7 @@ class UserSubmissionController extends Controller
      */
     public function thankYou()
     {
-        return view('vendor.news.submissions.thank-you');
+        return view('vendor.News.submissions.thank-you');
     }
     
     /**
@@ -73,7 +73,7 @@ class UserSubmissionController extends Controller
                     ->orderBy('created_at', 'desc')  // Show all posts, including unpublished
                     ->paginate(10);
                     
-        return view('vendor.news.submissions.user-posts', compact('posts', 'user'));
+        return view('vendor.News.submissions.user-posts', compact('posts', 'user'));
     }
     
     /**
@@ -88,6 +88,6 @@ class UserSubmissionController extends Controller
                     ->orderBy('created_at', 'desc')
                     ->paginate(10);
                     
-        return view('vendor.news.submissions.my-posts', compact('posts', 'user'));
+        return view('vendor.News.submissions.my-posts', compact('posts', 'user'));
     }
 }

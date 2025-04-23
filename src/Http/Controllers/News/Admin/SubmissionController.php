@@ -19,7 +19,7 @@ class SubmissionController extends Controller
                         ->orderBy('created_at', 'desc')
                         ->paginate(20);
                         
-        return view('vendor.news.admin.submissions.index', compact('submissions'));
+        return view('vendor.News.admin.submissions.index', compact('submissions'));
     }
 
     /**
@@ -30,7 +30,7 @@ class SubmissionController extends Controller
         $submission = Post::findOrFail($id);
         $categories = Category::all();
         
-        return view('vendor.news.admin.submissions.edit', compact('submission', 'categories'));
+        return view('vendor.News.admin.submissions.edit', compact('submission', 'categories'));
     }
 
     /**

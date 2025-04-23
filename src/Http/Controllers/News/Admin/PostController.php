@@ -32,14 +32,14 @@ class PostController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(10);
         
-        return view('vendor.news.admin.posts.index', compact('posts'));
+        return view('vendor.News.admin.posts.index', compact('posts'));
     }
 
     public function create(): View
     {
         $categories = Category::all();
         $tags = Tag::all();
-        return view('vendor.news.admin.posts.create', compact('categories', 'tags'));
+        return view('vendor.News.admin.posts.create', compact('categories', 'tags'));
     }
 
     public function store(Request $request): RedirectResponse
@@ -140,7 +140,7 @@ class PostController extends Controller
         $categories = Category::all();
         $tags = Tag::all();
         $images = $post->images;
-        return view('vendor.news.admin.posts.edit', compact('post', 'categories', 'tags', 'images'));
+        return view('vendor.News.admin.posts.edit', compact('post', 'categories', 'tags', 'images'));
     }
 
     public function update(Request $request, Post $post): RedirectResponse

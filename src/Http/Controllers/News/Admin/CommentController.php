@@ -13,12 +13,12 @@ class CommentController extends Controller
     public function index(): View
     {
         $comments = Comment::with(['post', 'user'])->latest()->paginate(10);
-        return view('vendor.news.admin.comments.index', compact('comments'));
+        return view('vendor.News.admin.comments.index', compact('comments'));
     }
 
     public function edit(Comment $comment): View
     {
-        return view('vendor.news.admin.comments.edit', compact('comment'));
+        return view('vendor.News.admin.comments.edit', compact('comment'));
     }
 
     public function update(Request $request, Comment $comment): RedirectResponse

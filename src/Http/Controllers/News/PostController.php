@@ -17,7 +17,7 @@ class PostController extends Controller
             abort(404);
         }
         
-        return view('vendor.news.posts.show', compact('post'));
+        return view('vendor.News.posts.show', compact('post'));
     }
     
     public function byCategory(Category $category): View
@@ -27,7 +27,7 @@ class PostController extends Controller
             ->latest('published_at')
             ->paginate(9);
             
-        return view('vendor.news.posts.category', compact('category', 'posts'));
+        return view('vendor.News.posts.category', compact('category', 'posts'));
     }
     
     public function byTag(Tag $tag): View
@@ -37,6 +37,6 @@ class PostController extends Controller
             ->latest('published_at')
             ->paginate(9);
             
-        return view('vendor.news.posts.tag', compact('tag', 'posts'));
+        return view('vendor.News.posts.tag', compact('tag', 'posts'));
     }
 }

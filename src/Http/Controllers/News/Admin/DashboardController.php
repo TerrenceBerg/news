@@ -22,6 +22,6 @@ class DashboardController extends Controller
             'recent_comments' => Comment::with(['post', 'user'])->latest()->take(5)->get(),
         ];
         
-        return view('vendor.news.admin.dashboard', compact('stats'));
+        return view('vendor.News.admin.dashboard', compact('stats'));
     }
 }

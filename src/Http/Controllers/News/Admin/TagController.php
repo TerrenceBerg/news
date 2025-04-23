@@ -14,17 +14,17 @@ class TagController extends Controller
     public function index(): View
     {
         $tags = Tag::withCount('posts')->latest()->paginate(10);
-        return view('vendor.news.admin.tags.index', compact('tags'));
+        return view('vendor.News.admin.tags.index', compact('tags'));
     }
 
     public function create(): View
     {
-        return view('vendor.news.admin.tags.create');
+        return view('vendor.News.admin.tags.create');
     }
 
     public function edit(Tag $tag): View
     {
-        return view('vendor.news.admin.tags.edit', compact('tag'));
+        return view('vendor.News.admin.tags.edit', compact('tag'));
     }
 
     /**
