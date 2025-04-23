@@ -55,19 +55,15 @@ body {
 
 /* Adjust text colors for dark background */
 .text-dark {
-    color: #00FF00 !important; /* Matrix green */
 }
 
 .text-muted {
-    color: #00BB00 !important; /* Slightly dimmed Matrix green */
 }
 
 .bg-light {
-    background-color: #050505 !important; /* Darker background */
 }
 
 .bg-white {
-    background-color: #050505 !important; /* Darker background */
 }
 
 .border {
@@ -77,31 +73,20 @@ body {
 /* Form elements */
 .form-control,
 .form-select {
-    background-color: #111111; /* Darker form fields */
-    color: #00FF00; /* Matrix green text */
-    border-color: #333;
 }
 
 /* Table styling */
 .table {
-    color: #00FF00; /* Matrix green text */
-    border-color: #333;
 }
 
 .table-striped > tbody > tr:nth-of-type(odd) {
-    background-color: rgba(0, 255, 0, 0.05);
 }
 
 /* List groups */
 .list-group-item {
-    background-color: #1a1a1a;
-    color: #00FF00; /* Matrix green text */
-    border-color: #333;
 }
 
 .list-group-item.active {
-    background-color: rgba(0, 255, 0, 0.3);
-    border-color: #006600;
 }
 
 /* Matrix Canvas specific styles - Optimized for English letters */
@@ -236,8 +221,6 @@ body {
 /* Footer */
 footer {
     margin-top: 3rem;
-    background-color: #000000 !important; /* Pure black footer */
-    border-top: 1px solid #333;
 }
 
 /* Animation for interactions */
@@ -280,18 +263,14 @@ footer {
 .page-item:first-child .page-link {
     border-top-left-radius: 0.25rem;
     border-bottom-left-radius: 0.25rem;
-    border-left: 1px solid #00FF00;
 }
 
 .page-item:last-child .page-link {
     border-top-right-radius: 0.25rem;
     border-bottom-right-radius: 0.25rem;
-    border-right: 1px solid #00FF00;
 }
 
 .page-link {
-    background-color: #0a0a0a;
-    border-color: #333;
     transition: all 0.2s ease;
     font-family: "Courier New", monospace;
     padding: 0.375rem 0.75rem;
@@ -301,10 +280,6 @@ footer {
 }
 
 .page-link:hover {
-    color: #FFFFFF;
-    background-color: #003300;
-    border-color: #006600;
-    box-shadow: 0 0 8px rgba(0, 255, 0, 0.6);
     z-index: 2;
 }
 
@@ -315,15 +290,11 @@ footer {
 }
 
 .page-item.active .page-link {
-    color: #000;
-    background-color: #00FF00;
-    border-color: #006600;
     font-weight: bold;
 }
 
 .page-item.disabled .page-link {
     color: #007700;
-    background-color: #0a0a0a;
     border-color: #004400;
     pointer-events: none;
     cursor: not-allowed;
@@ -362,42 +333,33 @@ footer {
 
 /* Shadow effects with green glow */
 .shadow-sm {
-    box-shadow: 0 0.125rem 0.25rem rgba(0, 255, 0, 0.3) !important; /* Increased green glow */
 }
 
 /* Links */
 a {
-    color: #00FF00;
     text-decoration: none;
 }
 
 a:hover {
-    color: #FFFFFF;
-    text-shadow: 0 0 5px rgba(0, 255, 0, 0.8);
 }
 
 /* Modal styling */
 .modal-content {
-    background-color: #0a0a0a; /* Darker modal */
-    border-color: #333;
 }
 
 .modal-header, .modal-footer {
-    border-color: #333;
 }
 
 .close {
-    color: #00FF00;
 }
 
 /* Dropdown menus */
 .dropdown-menu {
     background-color: #121212;
-    border-color: #333;
+    
 }
 
 .dropdown-item {
-    color: #00FF00;
 }
 
 .dropdown-item:hover, .dropdown-item:focus {
@@ -412,7 +374,6 @@ a:hover {
 }
 
 .mobile-bottom-nav a {
-    color: #00FF00 !important;
 }
 
 /* Breadcrumb styling */
@@ -421,11 +382,9 @@ a:hover {
 }
 
 .breadcrumb-item a {
-    color: #00CC00;
 }
 
 .breadcrumb-item.active {
-    color: #00FF00;
 }
 
 .breadcrumb-item+.breadcrumb-item::before {
@@ -434,39 +393,28 @@ a:hover {
 
 /* Button tweaks */
 .btn-outline-primary {
-    color: #00FF00;
-    border-color: #333;
 }
 
 .btn-outline-primary:hover {
-    background-color: #003300;
     color: #FFFFFF;
-    border-color: #006600;
 }
 
 /* Matrix-styled pagination */
 .matrix-pagination .page-item.active .page-link {
-    background-color: #00FF00;
-    border-color: #006600;
     color: #000;
 }
 
 .matrix-pagination .page-link {
-    color: #00FF00;
     background-color: #000;
-    border-color: #333;
 }
 
 .matrix-pagination .page-link:hover {
     color: #000;
-    background-color: #00FF00;
-    border-color: #006600;
 }
 
 .matrix-pagination .page-item.disabled .page-link {
     color: #666;
     background-color: #111;
-    border-color: #333;
 }
 
 .matrix-pagination .pagination {
