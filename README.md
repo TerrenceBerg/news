@@ -58,3 +58,15 @@ php artisan migrate
 ```html
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 ```
+
+## Inside your project, open the file app/Http/Controllers/Controller.php and make sure you have the following so Auth works properly
+```html
+<?php
+
+namespace App\Http\Controllers;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+abstract class Controller
+{
+    use AuthorizesRequests;
+}
+```
