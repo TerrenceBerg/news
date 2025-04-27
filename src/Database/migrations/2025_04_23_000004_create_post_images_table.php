@@ -11,7 +11,7 @@ return new class extends Migration
         if (!Schema::hasTable('news_post_images')) {
             Schema::create('news_post_images', function (Blueprint $table) {
                 $table->id();
-                $table->foreignId('post_id')->constrained()->onDelete('cascade');
+                $table->foreignId('news_post_id')->constrained()->onDelete('cascade');
                 $table->string('path');
                 $table->string('alt_text')->nullable();
                 $table->integer('sort_order')->default(0);

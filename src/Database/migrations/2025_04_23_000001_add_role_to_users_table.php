@@ -8,9 +8,12 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->string('role')->default('reader')->after('email');
-        });
+        // Check if table exists and the column doesn't exist
+        if (Schema::hasTable('users') && !Schema::hasColumn('users', 'role')) {
+            Schema::table('users', function (Blueprint $table) {
+                $table->string('role')->default('reader')->after('email');
+            });
+        }
     }
 
     public function down(): void
