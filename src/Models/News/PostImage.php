@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class PostImage extends Model
 {
+    protected $table = 'news_post_images';
     protected $fillable = [
         'post_id',
         'path',

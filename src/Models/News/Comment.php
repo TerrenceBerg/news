@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Comment extends Model
 {
+    protected $table = 'news_comments';
     protected $fillable = [
         'content',
         'post_id',

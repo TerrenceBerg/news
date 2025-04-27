@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Post extends Model
 {
+    protected $table = 'news_posts';
     protected $fillable = [
         'title',
         'slug',

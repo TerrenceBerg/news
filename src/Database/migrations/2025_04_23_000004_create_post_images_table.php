@@ -8,7 +8,7 @@ return new class extends Migration
 {
     public function up(): void
     {
-        if (!Schema::hasTable('post_images')) {
+        if (!Schema::hasTable('news_post_images')) {
             Schema::create('post_images', function (Blueprint $table) {
                 $table->id();
                 $table->foreignId('post_id')->constrained()->onDelete('cascade');
@@ -22,6 +22,6 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::dropIfExists('post_images');
+        Schema::dropIfExists('news_post_images');
     }
 };
