@@ -132,7 +132,7 @@
                                     </a>
                                     
                                     @if(Auth::user()->isAdmin())
-                                        <a class="dropdown-item" href="{{ route('admin.dashboard') }}">
+                                        <a class="dropdown-item" href="{{ route('admin.news_dashboard') }}">
                                             <i class="bi bi-speedometer2 me-1"></i> Admin Dashboard
                                         </a>
                                     @endif
