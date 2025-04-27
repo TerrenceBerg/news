@@ -36,8 +36,8 @@ class TagController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255|unique:tags',
-            'slug' => 'nullable|string|max:255|unique:tags',
+            'name' => 'required|string|max:255|unique:news_tags',
+            'slug' => 'nullable|string|max:255|unique:news_tags',
         ]);
         
         if (empty($validated['slug'])) {
@@ -60,8 +60,8 @@ class TagController extends Controller
     public function update(Request $request, Tag $tag): RedirectResponse
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255|unique:tags,name,' . $tag->id,
-            'slug' => 'nullable|string|max:255|unique:tags,slug,' . $tag->id,
+            'name' => 'required|string|max:255|unique:news_tags,name,' . $tag->id,
+            'slug' => 'nullable|string|max:255|unique:news_tags,slug,' . $tag->id,
         ]);
         
         if (empty($validated['slug'])) {

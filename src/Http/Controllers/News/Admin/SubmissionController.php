@@ -41,7 +41,7 @@ class SubmissionController extends Controller
         $validated = $request->validate([
             'title' => 'required|min:5|max:255',
             'content' => 'required',
-            'category_id' => 'required|exists:categories,id',
+            'category_id' => 'required|exists:news_categories,id',
             'source_url' => 'nullable|url',
             'is_published' => 'boolean',
             'featured_image' => 'nullable|image|max:2048',

@@ -25,8 +25,8 @@ class CategoryController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255|unique:categories',
-            'slug' => 'nullable|string|max:255|unique:categories',
+            'name' => 'required|string|max:255|unique:news_categories',
+            'slug' => 'nullable|string|max:255|unique:news_categories',
             'description' => 'nullable|string',
         ]);
         

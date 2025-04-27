@@ -49,7 +49,7 @@ class PostController extends Controller
             'content' => 'required|string',
             'source_url' => 'nullable|url|max:2048',
             'excerpt' => 'nullable|string',
-            'category_id' => 'required|exists:categories,id',
+            'category_id' => 'required|exists:news_categories,id',
             'featured_image' => 'nullable|image|max:2048',
             'tags' => 'nullable|array',
             'tags.*' => 'exists:tags,id',
@@ -149,7 +149,7 @@ class PostController extends Controller
             'title' => 'required|min:3',
             'content' => 'required',
             'source_url' => 'nullable|url|max:2048',
-            'category_id' => 'required|exists:categories,id',
+            'category_id' => 'required|exists:news_categories,id',
             'featured_image' => 'nullable|image|max:1024',
         ]);
         
@@ -294,7 +294,7 @@ class PostController extends Controller
     {
         $request->validate([
             'images' => 'required|array',
-            'images.*.id' => 'required|exists:post_images,id',
+            'images.*.id' => 'required|exists:news_post_images,id',
             'images.*.order' => 'required|integer|min:0',
         ]);
         
