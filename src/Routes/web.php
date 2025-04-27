@@ -24,7 +24,7 @@ use App\Http\Middleware\EnsureUserHasRole;
 // Public routes
     Route::middleware(['web'])->prefix('news')->name('news.')->group(function () {
     // Post routes 
-        Route::get('/', [HomeController::class, 'index'])->name('home');
+        Route::get('/', [HomeController::class, 'index'])->name('index');
         Route::get('/home', [HomeController::class, 'index'])->name('home');
         Route::get('/posts/{post:slug}', [PostController::class, 'show'])->name('posts.show');
         Route::get('/category/{category:slug}', [PostController::class, 'byCategory'])->name('posts.category');
@@ -50,7 +50,7 @@ use App\Http\Middleware\EnsureUserHasRole;
         // This route is for the admin dashboard
         // It is accessible only to users with the 'admin' role
         // The route is defined with the prefix 'admin' and the name 'admin.dashboard'
-            Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
+            Route::get('/', [AdminDashboardController::class, 'index'])->name('index');
             Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('news_dashboard');
         // Posts - Complete resource routes
             Route::get('/posts', [AdminPostController::class, 'index'])->name('posts.index');
