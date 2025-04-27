@@ -13,7 +13,7 @@ class TagController extends Controller
 {
     public function index(): View
     {
-        $tags = Tag::withCount('posts')->latest()->paginate(10);
+        $tags = Tag::latest()->paginate(10);
         return view('vendor.News.admin.tags.index', compact('tags'));
     }
 

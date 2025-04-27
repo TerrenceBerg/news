@@ -142,13 +142,13 @@
         <!-- Sidebar -->
         <div class="bg-dark border-right" id="sidebar-wrapper">
             <div class="sidebar-heading text-center py-4 text-light fs-4 fw-bold">
-                <a href="{{ route('admin.dashboard') }}" class="text-decoration-none text-light d-flex align-items-center justify-content-center">
+                <a href="{{ route('admin.news_dashboard') }}" class="text-decoration-none text-light d-flex align-items-center justify-content-center">
                     <i class="bi bi-newspaper me-2"></i> 
                     {{ config('app.name') }}
                 </a>
             </div>
             <div class="list-group list-group-flush">
-                <a href="{{ route('admin.dashboard') }}" class="list-group-item list-group-item-action bg-dark text-light">
+                <a href="{{ route('admin.news_dashboard') }}" class="list-group-item list-group-item-action bg-dark text-light">
                     <i class="bi bi-speedometer2 me-2"></i> Dashboard
                 </a>
                 <a href="{{ route('admin.posts.index') }}" class="list-group-item list-group-item-action bg-dark text-light">
@@ -163,7 +163,7 @@
                 <a href="{{ route('admin.comments.index') }}" class="list-group-item list-group-item-action bg-dark text-light">
                     <i class="bi bi-chat-dots me-2"></i> Comments
                 </a>
-                <a href="{{ route('admin.users.index') }}" class="list-group-item list-group-item-action bg-dark text-light">
+                <a href="{{ route('admin.news_users.index') }}" class="list-group-item list-group-item-action bg-dark text-light">
                     <i class="bi bi-people me-2"></i> Users
                 </a>
                 <a href="{{ url('/') }}" class="list-group-item list-group-item-action bg-dark text-light">

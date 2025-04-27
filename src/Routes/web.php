@@ -51,7 +51,7 @@ use App\Http\Middleware\EnsureUserHasRole;
         // It is accessible only to users with the 'admin' role
         // The route is defined with the prefix 'admin' and the name 'admin.dashboard'
             Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
-            Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+            Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('news_dashboard');
         // Posts - Complete resource routes
             Route::get('/posts', [AdminPostController::class, 'index'])->name('posts.index');
             Route::get('/posts/create', [AdminPostController::class, 'create'])->name('posts.create');
@@ -86,9 +86,9 @@ use App\Http\Middleware\EnsureUserHasRole;
             Route::post('/comments/{comment}/approve', [AdminCommentController::class, 'approve'])->name('comments.approve');
             Route::post('/comments/{comment}/reject', [AdminCommentController::class, 'reject'])->name('comments.reject');
         // Users
-            Route::get('/users', [AdminUserController::class, 'index'])->name('users.index');
-            Route::get('/users/{user}/edit', [AdminUserController::class, 'edit'])->name('users.edit');
-            Route::put('/users/{user}', [AdminUserController::class, 'update'])->name('users.update');
+            Route::get('/users', [AdminUserController::class, 'index'])->name('news_users.index');
+            Route::get('/users/{user}/edit', [AdminUserController::class, 'edit'])->name('news_users.edit');
+            Route::put('/users/{user}', [AdminUserController::class, 'update'])->name('news_users.update');
         // Submission management routes
             Route::get('/submissions', [AdminSubmissionController::class, 'index'])->name('submissions.index');
             Route::get('/submissions/{id}/edit', [AdminSubmissionController::class, 'edit'])->name('submissions.edit');
