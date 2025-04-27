@@ -45,7 +45,7 @@ use App\Http\Middleware\EnsureUserHasRole;
     });
 
 // Admin routes - Use class directly instead of alias
-    Route::middleware(['web','auth', EnsureUserHasRole::class.':admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::middleware(['web','auth', EnsureUserHasRole::class.':admin'])->prefix('admin_news')->name('admin.')->group(function () {
         // Dashboard
         // This route is for the admin dashboard
         // It is accessible only to users with the 'admin' role
