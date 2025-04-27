@@ -181,7 +181,7 @@
                 <form id="sidebar-logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                     @csrf
                 </form>
-                <a href="{{ route('.news.home') }}" class="list-group-item list-group-item-action bg-dark text-light">
+                <a href="{{ route('news.home') }}" class="list-group-item list-group-item-action bg-dark text-light">
                     <i class="bi bi-eye me-2"></i> View Site
                 </a>
             </div>

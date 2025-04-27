@@ -22,7 +22,7 @@ class HomeController extends Controller
             ->paginate(20);
             
         $categories = Category::withCount('posts')->get();
-        $tags = Tag::withCount('posts')->get();
+        $tags = Tag::/*withCount('posts')->*/get();
             
         return view('vendor.News.home', compact('featuredPosts', 'recentPosts', 'categories', 'tags'));
     }
