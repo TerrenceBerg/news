@@ -9,7 +9,7 @@ return new class extends Migration
     public function up(): void
     {
         if (!Schema::hasTable('news_post_images')) {
-            Schema::create('post_images', function (Blueprint $table) {
+            Schema::create('news_post_images', function (Blueprint $table) {
                 $table->id();
                 $table->foreignId('post_id')->constrained()->onDelete('cascade');
                 $table->string('path');
